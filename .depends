@@ -1,1 +1,1 @@
-main.o: main.cc tableau2D.hh
+main.o: main.cc tableau2D.hh matrix.hh

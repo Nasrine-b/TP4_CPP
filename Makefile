@@ -11,13 +11,13 @@ $(EXEC): $(OBJ)
 	$(CC) $(LIBFLAGS) $^ -o $@
 
 %.o: %.cc
-	$(CC) $(CCFLAGS) -o $@ -c $<
+	$(CC) $(CCFLAGS) -o $@ -c -Iinclude $<
 
 .depends:
 	g++ -MM $(SRC) > .depends
 -include .depends
 
 clean:
-	rm -f $(OBJ) $(EXEC) res_reactions.txt res_normalisation.txt
+	rm -f $(OBJ) $(EXEC)
 
 distclean : clean
