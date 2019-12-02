@@ -20,10 +20,12 @@ int main(void)
     std::cout << tab3 << std::endl ;*/
 
   Matrix<float> a1(5,5,1);
-  Matrix<float> a2(5,5,0);
+  Matrix<float> a2(5,8,5);
   Matrix<float> a3=a1;
   Matrix<float> a4=(a1+a2+a3)*a1;
   std::cout<<a1<<std::endl;
-  std::cout<<2*a4/2<<std::endl;
+  std::cout<<a2<<std::endl;
+  std::cout<<"ICI"<<std::endl;
+  std::cout<<transpose(a2)<<std::endl;
   return 0;
 }

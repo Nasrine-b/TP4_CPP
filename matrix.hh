@@ -83,6 +83,52 @@ public:
   {
     return multiply(1/coeff,M);
   }
+  //Addition
+  template<typename U> //function used to add a scalar on two sides
+  friend Matrix add(const U&coeff,const Matrix<T>& M)
+  {
+    Matrix res(M);
+    for(size_t i=0 ; i< res.nbLine ; ++i)
+    {
+      for(size_t j=0 ; j< res.nbColumn ; ++j)
+      {
+        res.table[i][j]+=coeff;
+      }
+    }
+    return res;
+  }
+  //Addition
+  template<typename U>
+  friend Matrix operator+(const U&coeff,const Matrix<T>& M)
+  {
+    return add(coeff,M);
+  }
+  template<typename U>
+  friend Matrix operator+(const Matrix<T>&M, const U& coeff)
+  {
+    return add(coeff,M);
+  }
+  //Substract
+  template<typename U>
+  friend Matrix operator-(const Matrix<T>&M, const U& coeff)
+  {
+    return add(-coeff,M);
+  }
+
+  //Transpose
+  friend Matrix transpose(const Matrix<T>& M)
+  {
+    Matrix res(M.nbLine,M.nbColumn,0);
+    for(size_t i=0 ; i < res.nbLine ;++i)
+    {
+      for(size_t j=0 ; j < res.nbColumn ; ++j)
+      {
+        res.table[i][j]=M.table[j][i];
+      }
+    }
+    return res;
+  }
+
 };
 
 //Constructor
